@@ -75,6 +75,16 @@ let _ = {
             return arr;
         }
         return arr.slice(number);
+    },
+
+    // Creates a slice of array excluding elements dropped from the beginning.
+    // Elements are dropped until predicate returns falsey. The predicate is
+    // invoked with three arguments: (value, index, array)
+    dropWhile(arr, predicate){
+        let dropNumber = arr.findIndex((element, index) => {
+            return !(predicate(element, index, arr));
+        });
+        return this.drop(arr, dropNumber);
     }
 
 };
