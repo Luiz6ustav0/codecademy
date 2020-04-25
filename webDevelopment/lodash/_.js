@@ -27,8 +27,10 @@ let _ = {
     },
 
     // Split string into an array of its words
-    words(str){
-        return str.split(' ');
+    // Default pattern used is a space(' ')
+    words(str, pattern){
+        pattern === undefined ? pattern = ' ' : pattern = pattern;
+        return str.split(pattern);
     }
 
 
