@@ -43,6 +43,10 @@ let _ = {
             return padding.repeat(Math.floor(half)) + str + padding.repeat(Math.ceil(half));
         }
         return str;
+    },
+
+    has(obj, key){
+        return obj[key] === undefined ? false : true;
     }
 
 
