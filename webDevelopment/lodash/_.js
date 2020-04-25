@@ -39,7 +39,7 @@ let _ = {
         let len = str.length;
         if(len<length){
             const padding = ' ';
-            let half = (length - len)/2;
+            const half = (length - len)/2;
             return padding.repeat(Math.floor(half)) + str + padding.repeat(Math.ceil(half));
         }
         return str;
