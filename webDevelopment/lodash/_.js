@@ -45,9 +45,10 @@ let _ = {
         return str;
     },
 
+    // Checks if obj has the key property
     has(obj, key){
         return obj[key] === undefined ? false : true;
-    }
+    },
 
 
 };
