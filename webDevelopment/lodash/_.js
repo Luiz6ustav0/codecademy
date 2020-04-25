@@ -24,6 +24,11 @@ let _ = {
         if(number >= start && number < end ){
             return true;
         } else return false;
+    },
+
+    // Split string into an array of its words
+    words(str){
+        return str.split(' ');
     }
 
 
