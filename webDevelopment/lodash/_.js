@@ -57,8 +57,17 @@ let _ = {
             invertedObj[obj[key]] = key;
         }
         return invertedObj;
-    }
+    },
 
+    // Returns the key of the first element predicate returns truthy for
+    findKey(obj, predicate){
+        for(i in obj){
+            let evalution = predicate(obj[i]);
+            if(evalution == true) return i
+        }
+        return undefined;
+    }
+    
 
 };
 
