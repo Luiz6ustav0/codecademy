@@ -66,8 +66,16 @@ let _ = {
             if(evalution == true) return i
         }
         return undefined;
-    }
+    },
     
+    // Creates a slice of array with n elements dropped from the beginning
+    drop(arr, number){
+        if(number === undefined){
+            arr.shift();
+            return arr;
+        }
+        return arr.slice(number);
+    }
 
 };
 
