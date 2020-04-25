@@ -50,6 +50,15 @@ let _ = {
         return obj[key] === undefined ? false : true;
     },
 
+    // Iterates through each key and value in obj and swaps them
+    invert(obj){
+        let invertedObj = {};
+        for(key in obj){
+            invertedObj[obj[key]] = key;
+        }
+        return invertedObj;
+    }
+
 
 };
 
