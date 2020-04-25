@@ -85,8 +85,19 @@ let _ = {
             return !(predicate(element, index, arr));
         });
         return this.drop(arr, dropNumber);
-    }
+    },
 
+    // Creates an array of elements split into groups the length of size. 
+    // If array can't be split evenly, the final chunk will be the remaining elements.
+    chunk(arr, size){
+        size = (size === undefined) ? 1 : size;
+        let chunkArr = [];
+        for(let i = 0; i < arr.length; i+=size){
+            let arrayChunk = arr.slice(i, i+size);
+            chunkArr.push(arrayChunk);
+        }
+        return chunkArr;
+    }
 };
 
 module.exports = _;
