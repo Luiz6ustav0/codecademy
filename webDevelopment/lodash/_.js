@@ -7,6 +7,23 @@ let _ = {
         let clampedValue = Math.max(number, lowerBound);
         clampedValue = Math.min(clampedValue, upperBound);
         return clampedValue;
+    },
+
+    // Checks to see if number is between the range start-end
+    // Aceepts negative ranges
+    inRange(number, start, end){
+        if(end === undefined){
+            end = start;
+            start = 0;
+        } else if(start > end){
+            start += end;
+            end = start - end;
+            start = start - end;
+        }
+
+        if(number >= start && number < end ){
+            return true;
+        } else return false;
     }
 
 
