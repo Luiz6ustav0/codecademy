@@ -31,13 +31,21 @@ let _ = {
     words(str, pattern){
         pattern === undefined ? pattern = ' ' : pattern = pattern;
         return str.split(pattern);
+    },
+
+    // Pads string on the left and right sides if it's shorter than length. 
+    // Padding characters are truncated if they can't be evenly divided by length.
+    pad(str, length){
+        let len = str.length;
+        if(len<length){
+            const padding = ' ';
+            let half = (length - len)/2;
+            return padding.repeat(Math.floor(half)) + str + padding.repeat(Math.ceil(half));
+        }
+        return str;
     }
 
 
 };
 
-
-
-
-// Do not write or modify code below this line.
 module.exports = _;
