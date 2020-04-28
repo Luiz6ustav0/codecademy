@@ -34,6 +34,10 @@ const gameOver = (status) => {
   }
 };
 
+const isBot = door => {
+  return (door.src === botDoorPath) ? true : false;
+};
+
 const isClicked = (door) => {
   return door.src === closedDoorPath ? false : true;
 };
