@@ -83,6 +83,10 @@ const startRound = () => {
   currentlyPlaying = true;
 };
 
-startButton.onclick = startRound;
+startButton.onclick = () => {
+  if(!currentlyPlaying){
+    startRound();
+  }
+}
 
-randomChoreDoorGenerator();
+startRound();
