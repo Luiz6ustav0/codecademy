@@ -26,7 +26,8 @@
   }
   
   .container {
-  
+    width: 90%;
+    margin: 0 auto;
   }
   
   .branding {
@@ -62,7 +63,9 @@
   /* Home Page Rulesets */
   
   #introduction {
-  
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 50%;
   }
   
   #introduction h1 {
