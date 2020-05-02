@@ -41,11 +41,18 @@ const templateElement = document.getElementById("templateHB");
 const templateSource = templateElement.innerHTML;
 const template = Handlebars.compile(templateSource);
 const compiledHTML = template(context);
-document.getElementById("information").innerHTML = compiledHTML;
+let temp = document.getElementById("information");
+temp.innerHTML = compiledHTML;
 
-// Change color of welcome message
-const el = document.getElementById("welcome");
+// Add or remove instrument functions
+function addInstrument(instrument) {
+  context['instruments'].push(instrument);
+  temp.innerHTML = template(context);
+};
 
-el.onhover = function () {
-  el.style.color = blue;
+function removeInstruments(instrument) {
+  context['instruments'].pop(context.instruments.findIndex(obj => {
+    return obj.name === instrument.name;
+  }));
+  temp.innerHTML = template(context);
 };
