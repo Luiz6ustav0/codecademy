@@ -54,10 +54,15 @@
   .navbar li a {
     color: rgba(255, 255, 255, 0.8);
     font-weight: normal;
+    padding: 5px 5px;
+    text-align: center;
+    transition: all 0.3s ease-in-out 0s;
   }
   
-  .navbar li a:hover, .navbar .current a {
-    color: #ffffff;
+  .navbar li a:hover{
+    color: black;
+    background-color: snow;
+    border-radius: 5px 10px;
   }
   
   /* Home Page Rulesets */

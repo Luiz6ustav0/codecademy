@@ -42,3 +42,10 @@ const templateSource = templateElement.innerHTML;
 const template = Handlebars.compile(templateSource);
 const compiledHTML = template(context);
 document.getElementById("information").innerHTML = compiledHTML;
+
+// Change color of welcome message
+const el = document.getElementById("welcome");
+
+el.onhover = function () {
+  el.style.color = blue;
+};
