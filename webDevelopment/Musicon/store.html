@@ -27,6 +27,8 @@
         <article class="instrument">
           <img class="image" src="{{this.image}}" alt="{{this.name}}">
           <section class="details">
+            <h2 class="name">{{this.name}}</h2>
+            <p class="description">{{this.description}}</p>
             {{#if this.sale}}
             <p class="price"><del>{{this.price}}</del></p>
             <p class="sale">{{this.sale}}</p>
