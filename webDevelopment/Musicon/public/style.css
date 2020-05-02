@@ -30,8 +30,11 @@
     margin: 0 auto;
   }
   
-  .branding {
+  .branding { 
     float: left;
+    background-color: rgba(206, 31, 53, 0.82);
+    border-radius: 5px 2px;
+    padding: 5px 5px;
   }
   
   .branding h1 {
