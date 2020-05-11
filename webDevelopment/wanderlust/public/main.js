@@ -65,9 +65,10 @@ const renderVenues = (venues) => {
 }
 
 const renderForecast = (day) => {
-  // Add your code here:
-  
-	let weatherContent = '';
+  let weatherContent = `<h2> High: ${day.main.temp_max}</h2>
+                        <h2> Low: ${day.main.temp_min}</h2>
+                        <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="weathericon" />
+                        <h2>${weekDays[(new Date()).getDay()]}</h2>`;
   $weatherDiv.append(weatherContent);
 }
 
@@ -77,7 +78,7 @@ const executeSearch = () => {
   $destination.empty();
   $container.css("visibility", "visible");
   getVenues().then(venues => renderVenues(venues));
-  getForecast()
+  getForecast().then(forecast => renderForecast(forecast));
   return false;
 }
 
