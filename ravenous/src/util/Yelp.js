@@ -21,6 +21,7 @@ export let Yelp = {
                                 category: business.categories[0].title,
                                 rating: business.rating,
                                 reviewCount: business.review_count,
+                                yelpUrl: business.url,
                         }));
                     }
                 });
