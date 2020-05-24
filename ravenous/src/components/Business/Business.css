@@ -4,11 +4,15 @@
     justify-content: space-between;
     width: 16.66rem;
     margin: 0 .5rem 2.3rem .5rem;
-  }
+    padding: .3rem .3rem;
+    background-color: rgba(187, 123, 49, 0.349);
+    border-radius: 0.5rem 0.5rem;
+}
   
   .Business .image-container {
     height: 16.66rem;
     margin-bottom: 1rem;
+    border-radius: .5rem .7rem;
   }
   
   .Business h2 {
