@@ -1,13 +1,14 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const {login, pw, db} = require('./secrets');
 
 const Blog = require('./models/blog');
 
 // express app
 const app = express();
 
-const dbURI = "mongodb+srv://dev:nodecrashcourse@cluster0.l6tbh.mongodb.net/nodecrashcourse?retryWrites=true&w=majority";
+const dbURI = `mongodb+srv://${login}:${pw}@cluster0.l6tbh.mongodb.net/${db}?retryWrites=true&w=majority`;
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
