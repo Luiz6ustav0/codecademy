@@ -1,9 +1,18 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
+
 
 const server = http.createServer((req, response) => {
-    console.log(req.url, req.method);
-    
+
+    // lodash
+    const greet = _.once((num) => {
+        console.log(num);
+    })
+
+    greet(1);
+    greet(2);
+
     let path = './views/';
     switch (req.url) {
         case '/':
