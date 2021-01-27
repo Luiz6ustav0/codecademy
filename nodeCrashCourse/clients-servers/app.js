@@ -16,7 +16,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 // middleware & static files
 
 app.use(morgan('dev'));
-app.use(express.static('.public'));
+app.use(express.static('./public/'));
 app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
