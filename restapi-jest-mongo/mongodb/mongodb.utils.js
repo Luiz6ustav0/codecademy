@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+const {login, pw, db} = require('../secrets');
 
 const URL = `mongodb+srv://${login}:${pw}@cluster0.l6tbh.mongodb.net/${db}?retryWrites=true&w=majority`;
 
 
 const connect = async () => {
-    await mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    await mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
         // .then((result) => app.listen(3000))
         .catch((err) => console.log(err));
 }
@@ -22,4 +23,10 @@ const dropCollection = async (collectionName) => {
                 console.log('namespace %s not found', collectionName);
             } else throw new Error(err)
         })
+}
+
+module.exports = {
+    connect,
+    disconnect,
+    dropCollection
 }
