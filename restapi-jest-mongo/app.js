@@ -12,7 +12,7 @@ app.use(express.json());
 app.use('/api', employeeRouter);
 
 app.get('/', (req, res) => {
-    res.status(200).json({ hello: 'this is a test' });
+    res.status(200).json({ Initial: 'This is our initial page.' });
     return
 })
 

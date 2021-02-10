@@ -1,3 +1,4 @@
+const employeeController = require('../controller/employee.controller');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
@@ -6,5 +7,7 @@ router.get('/', (req, res) => {
     });
     return
 })
+
+router.post('/contacts', employeeController.createEmployee);
 
 module.exports = router;
