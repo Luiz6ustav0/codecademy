@@ -1,6 +1,7 @@
 const employeeModel = require('../models/employee.model');
 const joi = require('@hapi/joi');
 const bcrypt = require('bcrypt');
+const saltRound = 10;
 
 const schema = joi.object({
     name: joi.string().required(),
@@ -20,6 +21,10 @@ exports.createEmployee = async (req, res, next) => {
 
         const emailExist = await employeeModel.findOne({email: req.body.email});
         if (emailExist) return res.status(400).json({message: 'The email provided already exists in the database.'});
+
+        const salt = await bcrypt.genSalt(saltRound);
+        const encryptedPassword = await bcrypt.hash(req.body.password, salt);
+        req.body.password = encryptedPassword;
 
         const newEmployee = await (employeeModel.create(req.body));
         res.status(201).json(newEmployee);
