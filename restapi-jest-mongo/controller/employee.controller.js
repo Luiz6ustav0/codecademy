@@ -13,14 +13,12 @@ const schema = joi.object({
 
 exports.createEmployee = async (req, res, next) => {
     try {
-        console.log("Create employee caleed");
-        
         const joiCheck = await schema.validate(req.body);
         console.log("Validation result: ", joiCheck);
         if (joiCheck.error) return res.status(400).json(joiCheck.error);
 
-        const emailExist = await employeeModel.findOne({email: req.body.email});
-        if (emailExist) return res.status(400).json({message: 'The email provided already exists in the database.'});
+        const emailExist = await employeeModel.findOne({ email: req.body.email });
+        if (emailExist) return res.status(400).json({ message: 'The email provided already exists in the database.' });
 
         const salt = await bcrypt.genSalt(saltRound);
         const encryptedPassword = await bcrypt.hash(req.body.password, salt);
@@ -31,6 +29,20 @@ exports.createEmployee = async (req, res, next) => {
     }
     catch (err) {
         console.log(err);
+        res.status(500).json(err);
+    }
+}
+
+exports.getAllEmployees = async (req, res, next) => {
+    try {
+        const allEmployees = await employeeModel.find({});
+        if (allEmployees && allEmployees.length > 0) {
+            res.status(200).json(allEmployees);
+        } else {
+            res.status(404).json(err);
+        }
+    }
+    catch (err) {
         res.status(500).json(err);
     }
 }

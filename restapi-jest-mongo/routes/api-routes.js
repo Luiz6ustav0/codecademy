@@ -10,4 +10,6 @@ router.get('/', (req, res) => {
 
 router.post('/contacts', employeeController.createEmployee);
 
+router.get('/contacts', employeeController.getAllEmployees);
+
 module.exports = router;
