@@ -46,3 +46,15 @@ exports.getAllEmployees = async (req, res, next) => {
         res.status(500).json(err);
     }
 }
+
+exports.getEmployeeById = async (req, res, next) => {
+    try {
+        const employee = await employeeModel.findById((req.params.employee_id));
+        if (employee) res.status(200).json(employee);
+        else res.status(404).send();
+    }
+    catch (err) { 
+        console.log(err); 
+        res.status(500).send(err); 
+    }
+}

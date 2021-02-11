@@ -12,4 +12,6 @@ router.post('/contacts', employeeController.createEmployee);
 
 router.get('/contacts', employeeController.getAllEmployees);
 
+router.get('/contacts/:employee_id', employeeController.getEmployeeById);
+
 module.exports = router;
