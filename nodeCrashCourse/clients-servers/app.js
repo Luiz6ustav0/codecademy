@@ -10,7 +10,10 @@ const app = express();
 
 const dbURI = `mongodb+srv://${login}:${pw}@cluster0.l6tbh.mongodb.net/${db}?retryWrites=true&w=majority`;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) => app.listen(3000))
+  .then((result) => {
+    console.log("App Running\nListenning to port 3000");
+    app.listen(3000);
+  })
   .catch((err) => console.log(err));
 
 // middleware & static files
