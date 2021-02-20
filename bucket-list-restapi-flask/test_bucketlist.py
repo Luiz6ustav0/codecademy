@@ -14,7 +14,6 @@ class BucketlistTestCase(unittest.TestCase):
 
         # binds the app to the current context
         with self.app.app_context():
-            # create all tables
             db.create_all()
 
     def test_bucketlist_creation(self):
@@ -64,7 +63,6 @@ class BucketlistTestCase(unittest.TestCase):
     def tearDown(self):
         """teardown all initialized variables."""
         with self.app.app_context():
-            # drop all tables
             db.session.remove()
             db.drop_all()
 
